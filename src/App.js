@@ -207,9 +207,9 @@ const App = () => {
       const publicKey =
         "MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAxRjSBw0jCl+3Cxnr+TgWel/HldUaDQqjl8Ogukho3KF6E/3IQrIy5FhEECuNiUMECFVKuGQHRuS5UnL4nwYsMh3tmvBWajG22lrCwRlSjxITR7/pQIxpVhC/hukIBtKN6qZxjAbW6VWAioxpWQFplWmc8uUVrOrO5LggfqSE9XIqMi3NwzyHvfaGF6CFsMNsbhwT4ipbbVwP8C2H3vVvlLHbNhA+iZ1lufC0YTpB9OQHrkYAEb/aKUmvhNIqFfZUuckHV1T+XCuPddU9XyjyD3EbwcrsWIDlpgcI6Z8QvFX8Yx9vtGhwPQbsx23l91wFm/HcIkkQyfQiZfa86+ZqowIDAQAB";
       const encSessionKey = await window.encryptKey(publicKey, sessionKey);
-      const keyName = corpId + userId;
-      const encKeyName = await window.encryptData(sessionKey, keyName);
-      const body = JSON.stringify({ encKeyName });
+      // const keyName = corpId + userId;
+      // const encKeyName = await window.encryptData(sessionKey, keyName);
+      const body = JSON.stringify({ corpId, userId });
 
       const response = await fetch("http://localhost:8080/api/v1/token/key", {
         method: "POST",
